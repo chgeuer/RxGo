@@ -823,20 +823,30 @@ func (o *observable) ElementAt(index uint) Single {
 // Filter filters items in the original Observable and returns
 // a new Observable with the filtered items.
 func (o *observable) Filter(apply Predicate) Observable {
-	f := func(out chan interface{}) {
-		it := o.iterable.Iterator(context.Background())
-		for {
-			if item, err := it.Next(context.Background()); err == nil {
-				if apply(item) {
-					out <- item
+	if o.observableType == cold {
+		f := func(out chan interface{}) {
+			it := o.iterable.Iterator(context.Background())
+			for {
+				if item, err := it.Next(context.Background()); err == nil {
+					if apply(item) {
+						out <- item
+					}
+				} else {
+					break
 				}
-			} else {
-				break
 			}
+			close(out)
 		}
-		close(out)
+		return newColdObservableFromFunction(f)
 	}
-	return newColdObservableFromFunction(f)
+
+	out := make(chan interface{})
+	o.Subscribe(handlers.NextFunc(func(item interface{}) {
+		if apply(item) {
+			out <- item
+		}
+	}))
+	return newHotObservableFromChannel(out)
 }
 
 // FirstOrDefault returns new Observable which emit only first item.
@@ -935,19 +945,26 @@ func (o *observable) LastOrDefault(defaultValue interface{}) Single {
 // Map maps a Function predicate to each item in Observable and
 // returns a new Observable with applied items.
 func (o *observable) Map(apply Function) Observable {
-	f := func(out chan interface{}) {
-		it := o.Iterator(context.Background())
-		for {
-			if item, err := it.Next(context.Background()); err == nil {
-				out <- apply(item)
-			} else {
-				break
+	if o.observableType == cold {
+		f := func(out chan interface{}) {
+			it := o.Iterator(context.Background())
+			for {
+				if item, err := it.Next(context.Background()); err == nil {
+					out <- apply(item)
+				} else {
+					break
+				}
 			}
+			close(out)
 		}
-		close(out)
+		return newColdObservableFromFunction(f)
 	}
 
-	return newColdObservableFromFunction(f)
+	out := make(chan interface{})
+	o.Subscribe(handlers.NextFunc(func(item interface{}) {
+		out <- apply(item)
+	}))
+	return newHotObservableFromChannel(out)
 }
 
 // Max determines and emits the maximum-valued item emitted by an Observable according to a comparator.
