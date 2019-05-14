@@ -8,8 +8,8 @@ import (
 
 	"fmt"
 
-	"github.com/reactivex/rxgo/handlers"
-	"github.com/reactivex/rxgo/options"
+	"github.com/chgeuer/rxgo/handlers"
+	"github.com/chgeuer/rxgo/options"
 )
 
 type observableType uint32

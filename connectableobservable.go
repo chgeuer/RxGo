@@ -4,8 +4,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/reactivex/rxgo/handlers"
-	"github.com/reactivex/rxgo/options"
+	"github.com/chgeuer/rxgo/handlers"
+	"github.com/chgeuer/rxgo/options"
 )
 
 type ConnectableObservable interface {

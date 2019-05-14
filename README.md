@@ -57,9 +57,9 @@ Certain types, such as `observer.Observer` and `observable.Observable` are organ
 
 ```go
 import (
-	"github.com/reactivex/rxgo"
-	"github.com/reactivex/rxgo/observer"
-	"github.com/reactivex/rxgo/observable"
+	"github.com/chgeuer/rxgo"
+	"github.com/chgeuer/rxgo/observer"
+	"github.com/chgeuer/rxgo/observable"
 	//...
 )
 ```
@@ -109,9 +109,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/reactivex/rxgo/handlers"
-	"github.com/reactivex/rxgo/observable"
-	"github.com/reactivex/rxgo/observer"
+	"github.com/chgeuer/rxgo/handlers"
+	"github.com/chgeuer/rxgo/observable"
+	"github.com/chgeuer/rxgo/observer"
 )
 
 func main() {
@@ -146,9 +146,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/reactivex/rxgo/handlers"
-	"github.com/reactivex/rxgo/observable"
-	"github.com/reactivex/rxgo/observer"
+	"github.com/chgeuer/rxgo/handlers"
+	"github.com/chgeuer/rxgo/observable"
+	"github.com/chgeuer/rxgo/observer"
 )
 
 func main() {

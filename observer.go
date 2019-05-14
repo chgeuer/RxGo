@@ -3,9 +3,9 @@ package rxgo
 import (
 	"sync"
 
-	"github.com/reactivex/rxgo/options"
+	"github.com/chgeuer/rxgo/options"
 
-	"github.com/reactivex/rxgo/handlers"
+	"github.com/chgeuer/rxgo/handlers"
 )
 
 // Observer represents a group of EventHandlers.

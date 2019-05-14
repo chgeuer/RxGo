@@ -3,7 +3,7 @@ package rxgo
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/reactivex/rxgo/options"
+	"github.com/chgeuer/rxgo/options"
 )
 
 var _ = Describe("Connectable Observable", func() {

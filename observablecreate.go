@@ -7,9 +7,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/reactivex/rxgo/options"
+	"github.com/chgeuer/rxgo/options"
 
-	"github.com/reactivex/rxgo/handlers"
+	"github.com/chgeuer/rxgo/handlers"
 )
 
 func isClosed(ch <-chan interface{}) bool {

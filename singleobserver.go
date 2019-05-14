@@ -3,7 +3,7 @@ package rxgo
 import (
 	"sync"
 
-	"github.com/reactivex/rxgo/handlers"
+	"github.com/chgeuer/rxgo/handlers"
 )
 
 // SingleObserver represents a group of EventHandlers.

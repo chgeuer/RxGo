@@ -3,7 +3,7 @@ package rxgo
 import (
 	"testing"
 
-	"github.com/reactivex/rxgo/handlers"
+	"github.com/chgeuer/rxgo/handlers"
 	"github.com/stretchr/testify/assert"
 )
 

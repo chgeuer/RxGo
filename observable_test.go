@@ -10,9 +10,9 @@ import (
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/reactivex/rxgo/options"
+	"github.com/chgeuer/rxgo/options"
 
-	"github.com/reactivex/rxgo/handlers"
+	"github.com/chgeuer/rxgo/handlers"
 	"github.com/stretchr/testify/assert"
 )
 
